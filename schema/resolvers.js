@@ -1,4 +1,4 @@
-const UserList = require("../FakeData");
+const { UserList } = require("../FakeData");
 
 /**
  * Contains all resolvers functions in our API
