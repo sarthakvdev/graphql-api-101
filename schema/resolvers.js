@@ -26,6 +26,7 @@ const resolvers = {
       return movie;
     },
   },
+
   User: {
     favoriteMovies: () => {
       return _.filter(
@@ -37,13 +38,26 @@ const resolvers = {
 
   Mutation: {
     createUser: (parent, args) => {
-       const user = args.input;
-       const lastId = UserList[UserList.length - 1].id;
-       user.id = lastId + 1;
-       UserList.push(user);
-       return user;
-    }
-  }
+      const user = args.input;
+      const lastId = UserList[UserList.length - 1].id;
+      user.id = lastId + 1;
+      UserList.push(user);
+      return user;
+    },
+
+    updateUsername: (parent, args) => {
+      const { id, newUsername } = args.input;
+      let userUpdated;
+      console.log(id, typeof(id));
+      UserList.forEach((user) => {
+        if (user.id === Number(id)) {
+          user.username = newUsername;
+          userUpdated = user;
+        }
+      });
+      return userUpdated;
+    },
+  },
 };
 
 module.exports = { resolvers };
