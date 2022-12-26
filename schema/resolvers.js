@@ -2,8 +2,8 @@ const { UserList, MoviesList } = require("../FakeData");
 const _ = require("lodash");
 
 /**
- * Contains all resolvers functions in our API
- * All funs that calls to database or do anything will exist in this resolver
+ * Contains all resolvers funs in our API
+ * All funs that calls to database or do anything will exist in this object
  */
 const resolvers = {
   Query: {
@@ -34,6 +34,16 @@ const resolvers = {
       );
     },
   },
+
+  Mutation: {
+    createUser: (parent, args) => {
+       const user = args.input;
+       const lastId = UserList[UserList.length - 1].id;
+       user.id = lastId + 1;
+       UserList.push(user);
+       return user;
+    }
+  }
 };
 
 module.exports = { resolvers };
