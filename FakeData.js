@@ -119,4 +119,37 @@ const UserList = [
   },
 ];
 
-module.exports = { UserList };
+const MoviesList = [
+  {
+    id: 1,
+    name: "The Shawshank Redemption",
+    yearOfRelease: 1994,
+    isInTheaters: true,
+  },
+  {
+    id: 2,
+    name: "The Godfather",
+    yearOfRelease: 1972,
+    isInTheaters: true,
+  },
+  {
+    id: 3,
+    name: "The Godfather: Part II",
+    yearOfRelease: 1974,
+    isInTheaters: false,
+  },
+  {
+    id: 4,
+    name: "The Dark Knight",
+    yearOfRelease: 2008,
+    isInTheaters: true,
+  },
+  {
+    id: 5,
+    name: "12 Angry Men",
+    yearOfRelease: 1957,
+    isInTheaters: false,
+  },
+];
+
+module.exports = { UserList, MoviesList };
